@@ -1,21 +1,23 @@
 package com.kaleichyk.plugins
 
-import io.ktor.serializaion.gson.*
-import io.ktor.server.application.*
-import io.ktor.server.plugins.*
-import io.ktor.server.request.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
+import io.ktor.application.Application
+import io.ktor.application.call
+import io.ktor.application.install
+import io.ktor.features.ContentNegotiation
+import io.ktor.gson.gson
+import io.ktor.response.respond
+import io.ktor.routing.get
+import io.ktor.routing.routing
 
 fun Application.configureSerialization() {
     install(ContentNegotiation) {
         gson {
-            }
+        }
     }
 
     routing {
         get("/json/gson") {
-                call.respond(mapOf("hello" to "world"))
-            }
+            call.respond(mapOf("hello" to "world"))
+        }
     }
 }

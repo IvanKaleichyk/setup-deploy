@@ -1,16 +1,16 @@
 package com.kaleichyk.plugins
 
-import io.ktor.http.*
-import io.ktor.server.application.*
-import io.ktor.server.request.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
+import io.ktor.application.Application
+import io.ktor.application.call
+import io.ktor.response.respondText
+import io.ktor.routing.get
+import io.ktor.routing.routing
 
 fun Application.configureRouting() {
 
     routing {
         get("/") {
-                call.respondText("Hello World!")
-            }
+            call.respondText("Hello World!")
+        }
     }
 }
